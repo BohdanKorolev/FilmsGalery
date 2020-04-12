@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./src/css/style.css">
+    <title>Film Gallery</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./src/favicon.ico"/>
+</head>
+<body>
+    <div class="body">
+        <div class="sidebar">
+            <ul class="sidebar__favor-list" id="favor-list">
+            </ul>
+        </div>
+        <div class="content">
+            <div class="content__settings">
+                <div class="content__genre">
+                    <select name="" id="genre-select" class="content__genre-select">
+                        <option value="0">select genre...</option>
+                    </select>
+                    <button id="filter-button">
+                        <span class="material-icons">
+                            search
+                        </span>
+                    </button>
+                </div>
+                <div class="content__title">
+                    Film Galery
+                </div>
+                <div class="content__types">
+                    <div class="material-icons content__view active-view-type" id="list-view">
+                        view_list
+                    </div>
+                    <div class="material-icons content__view" id="galery-view">
+                        view_module
+                    </div>
+                </div>
+            </div>
+            <div class="films" id="app" data-view="list"></div>
+        </div>
+    </div>
+    <script src="./src/js/bundle.js"></script>
+</body>
+</html>
