@@ -57,16 +57,13 @@ function FilteredViev() {
     app.innerHTML = '';
     if(filter.value == '0'){
         for (const film of films.values()) {
-            // newContent += film.FilmView();
             app.append(film.FilmView());
         }
-        // app.innerHTML = newContent;
     }else {
         let filteredFilms = films.filter(item => {return(item.film.genres.includes(filter.value) || item.film.genres.includes(filter.value.toLocaleLowerCase()))});
         for (const filteredFilm of filteredFilms) {
             app.append(filteredFilm.FilmView());
         }
-        // app.innerHTML = newContent;
     }
     StarsInit();
     localStorage.setItem('favors',JSON.stringify(favors));
@@ -123,36 +120,8 @@ function AddToFavor(el){
     let num = Number(el.dataset.targetStarNumber);
     if (!favors.includes(films[num - 1].film.name)) {
         favors.push(films[num-1].film.name);
-        // films[num-1].favorite = true;
         ShowFavors();
         FilteredViev();
     }
 }
 
-// function ModalsButtonInit() {
-//     let modalButton = document.getElementsByClassName('film__modal-button');
-//     for (const button of modalButton) {
-//         button.addEventListener('click',function(e){
-//             // let body = document.getElementsByTagName('body');
-//             document.body.innerHTML += (films[Number(e.target.dataset.targetModalNumber) - 1].ShowModal())
-//             document.body.style.overflowY='hidden';
-//             let closeModal = document.getElementsByClassName('modal-window__close');
-//             closeModal[0].addEventListener('click',function(){
-//                 let modal = document.getElementsByClassName('modal-wrapper');
-//                 modal[0].remove();
-//                 document.body.style.overflowY='scroll';
-//             })
-//         })
-//     }
-// }
-//
-// function CreateModal(e) {
-//     document.body.innerHTML = (films[Number(e.target.dataset.targetModalNumber)-1].ShowModal()) + document.body.innerHTML;
-//     document.body.style.overflowY = 'hidden';
-// }
-
-// function CloseModal() {
-//     let modal = document.getElementsByClassName('modal-wrapper');
-//     modal[0].remove();
-//     document.body.style.overflowY = 'scroll';
-// }
