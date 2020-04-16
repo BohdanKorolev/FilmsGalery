@@ -3,6 +3,7 @@ export class Film {
       this.film = film;
       this.favorite = false;
     }
+    
     FilmView(){
         let filmElement = document.createElement('div'),
             star = document.createElement('div'),
@@ -35,6 +36,7 @@ export class Film {
         filmElement.append(star);
         return filmElement;
     };
+
     ModaViewl(){
         let modalWrapper = document.createElement('div'),
             modalWindow = document.createElement('div'),
@@ -69,6 +71,7 @@ export class Film {
         modalWrapper.append(modalWindow);
         return modalWrapper;
     }
+
     FilmGenres(){
         let genres = '';
         for (const genre of this.film.genres) {
@@ -76,6 +79,7 @@ export class Film {
         }
         return genres;
     };
+
     FilmStarring(){
         let starring = '';
         for (const star of this.film.starring) {
