@@ -1,0 +1,1 @@
+<h2>After downloading, you must intall node_modules by runing <b>"npm install"</b>, and run webpack, to bundle js.</h2>
