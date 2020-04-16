@@ -1,17 +1,17 @@
 import { Film } from "./Film";
 
-let app = document.getElementById('app'),
-    films = [],
-    filters = [],
-    filterButton = document.getElementById('filter-button'),
-    filter = document.getElementById('genre-select'),
-    favors = JSON.parse(localStorage.getItem('favors')) != null ? JSON.parse(localStorage.getItem('favors')) : [],
-    favorsList = document.getElementById('favor-list'),
-    galeryView = document.getElementById('galery-view'),
-    listView = document.getElementById('list-view');
-
 
 window.addEventListener('load', () => {
+    let app = document.getElementById('app'),
+        films = [],
+        filters = [],
+        filterButton = document.getElementById('filter-button'),
+        filter = document.getElementById('genre-select'),
+        favors = JSON.parse(localStorage.getItem('favors')) != null ? JSON.parse(localStorage.getItem('favors')) : [],
+        favorsList = document.getElementById('favor-list'),
+        galeryView = document.getElementById('galery-view'),
+        listView = document.getElementById('list-view');
+
     galeryView.addEventListener('click', (e) => {
         if (!app.classList.contains('active-view-type')) {
             e.target.classList.add('active-view-type');
@@ -19,6 +19,7 @@ window.addEventListener('load', () => {
             app.setAttribute('data-view','galery')
         }
     });
+
     listView.addEventListener('click', (e) => {
         if (!app.classList.contains('active-view-type')) {
             e.target.classList.add('active-view-type');
@@ -26,7 +27,9 @@ window.addEventListener('load', () => {
             app.setAttribute('data-view','list');
         }
     });
+
     filterButton.addEventListener('click',FilteredViev);
+    
     fetch('http://my-json-server.typicode.com/moviedb-tech/movies/list')
         .then((response) => {
             return response.json();
@@ -69,17 +72,6 @@ function FilteredViev() {
     localStorage.setItem('favors',JSON.stringify(favors));
 }
 
-function RemoveFavor(el){
-    favors.splice(favors.indexOf(el.parentNode.innerText.substr(el.parentNode.innerText.indexOf('\n') + 1)),1);
-    el.parentNode.remove();
-    for (const film of films) {
-        if (!favors.includes(film.film.name)) {
-            film.favorite = false;
-        }
-    }
-    FilteredViev()
-}
-
 function ShowFavors() {
     favorsList.innerHTML = '';
     if (favors.length != 0) {
@@ -96,6 +88,17 @@ function ShowFavors() {
             favorsList.append(favorListItem);
         }
     }
+}
+
+function RemoveFavor(el){
+    favors.splice(favors.indexOf(el.parentNode.innerText.substr(el.parentNode.innerText.indexOf('\n') + 1)),1);
+    el.parentNode.remove();
+    for (const film of films) {
+        if (!favors.includes(film.film.name)) {
+            film.favorite = false;
+        }
+    }
+    FilteredViev()
 }
 
 function SetFilters() {

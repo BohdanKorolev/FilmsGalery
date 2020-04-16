@@ -4,21 +4,6 @@ export class Film {
       this.favorite = false;
     }
     FilmView(){
-        //    <div class="film">
-        //         <div class="film__img" style="background-image: url(${this.film.img})"></div>
-        //         <div class="film__info">
-        //             <div class="film__name">${this.film.name}</div>
-        //             <div class="film__year">${this.film.year}</div>
-        //             <div class="film__description">${this.film.description}</div>
-        //             <div class="film__genres">${this.FilmGenres()}</div>
-        //         </div>
-        //         <div class="film__modal-show">
-        //             <button class="film__modal-button" data-target-modal-number="${this.film.id}">more...</button>
-        //         </div>
-        //         <div class="material-icons film__favor favor" data-target-star-number="${this.film.id}">
-        //             ${this.favorite ? 'star' : 'star_outline'}
-        //         </div>
-        //   </div>
         let filmElement = document.createElement('div'),
             star = document.createElement('div'),
             modalButton = document.createElement('button');
@@ -51,25 +36,6 @@ export class Film {
         return filmElement;
     };
     ModaViewl(){
-        // <div class="modal-wrapper">
-        //     <div class="modal-window">
-        //         <div class="modal-window__public">
-        //             <div class="modal-window__img film__img" style="background-image: url(${this.film.img})"></div>
-        //             <div class="modal-window__star-year">
-        //                 <div class="modal-window__star favor material-icons">${this.favorite ? 'star' : 'star_outline'}</div>
-        //                 <div class="modal-window__year">${this.film.year}</div>
-        //             </div>
-        //             <div class="modal-window__genres">${this.FilmGenres()}</div>
-        //         </div>
-        //         <div class="modal-window__details">
-        //             <div class="modal-window__name film__name">${this.film.name}</div>
-        //             <div class="modal-window__description">${this.film.description}</div>
-        //             <div class="modal-window__director">Director: ${this.film.director}</div>
-        //             <div class="modal-window__starring">${this.FilmStarring()}</div>
-        //         </div>
-        //         <div class="modal-window__close favor material-icons">close</div>
-        //     </div>
-        // </div>
         let modalWrapper = document.createElement('div'),
             modalWindow = document.createElement('div'),
             modalClose = document.createElement('div');

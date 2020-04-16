@@ -6,5 +6,5 @@ module.exports = {
     path: path.resolve(__dirname, './src/js'),
     filename: 'bundle.js'
   },
-  devtool: 'sourcemap'
+  devtool: 'null'
 };
